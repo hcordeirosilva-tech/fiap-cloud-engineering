@@ -71,7 +71,7 @@ Um Codespaces chamado `fiap-cloud-engineering` rodando na sua conta, com o repos
      Botão Fork destacado no cabeçalho do repositório original. -->
 ![](img/fork1.png)
 
-3. Na tela de criação do fork, **deixe `Copy the main branch only` desmarcado** (queremos todas as branches) e clique em `Create Fork`.
+3. Na tela de criação do fork, **deixe `Copy the main branch only` marcado** e clique em `Create Fork`.
 
 <details>
 <summary><b>💡 Por que fork em vez de clonar?</b></summary>

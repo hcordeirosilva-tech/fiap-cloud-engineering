@@ -470,12 +470,12 @@ Se o lab estiver em modo *Max I/O* e o FS tiver muito dado armazenado, 16 thread
 
 ### Resultado esperado desta parte
 
-EC2, EFS, subnets e VPC destruídos. Bucket de estado preservado para próximos labs.
+Stack do EFS+EC2 destruído (EC2 e EFS removidos). VPC, subnets e route tables permanecem para os próximos labs, e o bucket de estado é preservado.
 
 > [!CAUTION]
 > EC2 `c5.large` custa ~$0.085/hora (~$2/dia se esquecer ligada); EFS armazena os arquivos criados no lab e cobra ~$0.30/GB/mês. Sem destruir, você acumula custo silencioso.
 
-25. **No Codespaces**, destrua os stacks em ordem inversa (EFS+EC2 → route tables → VPC):
+25. **No Codespaces**, destrua o stack do EFS+EC2 (libera a EC2 e o EFS, que são os recursos que geram custo):
 
 ```bash
 cd /workspaces/fiap-cloud-engineering/02-Storage/01-Network-file-system/efs-instance
@@ -486,15 +486,6 @@ terraform destroy -auto-approve
      Saída do terraform destroy do stack EFS+EC2 com "Destroy complete!". -->
 ![](img/t25.png)
 
-26. (Opcional, mas recomendado) Destrua também os stacks de rede:
-
-```bash
-cd /workspaces/fiap-cloud-engineering/02-Storage/01-Network-file-system/rede-vpc/RT-call
-terraform destroy -auto-approve
-
-cd /workspaces/fiap-cloud-engineering/02-Storage/01-Network-file-system/rede-vpc/vpc-call
-terraform destroy -auto-approve
-```
 
 ### Checkpoint
 
